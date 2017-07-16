@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 
 import { Customer } from './customer';
 
@@ -9,10 +9,9 @@ import { Customer } from './customer';
 })
 export class CustomerComponent  {
     customer: Customer= new Customer();
-    customerForm: FormGroup
 
-    save() {
-        console.log(this.customerForm);
+    save(customerForm: NgForm) {
+        console.log(customerForm.form);
         console.log('Saved: ' + JSON.stringify(customerForm.value));
     }
  }
