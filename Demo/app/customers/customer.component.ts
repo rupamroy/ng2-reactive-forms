@@ -47,6 +47,10 @@ export class CustomerComponent implements OnInit {
             notification: 'email',
             rating: ['', ratingRange(1, 5)],
         });
+
+        this.customerForm.get('notification').valueChanges.subscribe((value) => {
+            this.setNotification(value);
+        });
     }
 
     populateTestData(): void {
