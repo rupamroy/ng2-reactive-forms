@@ -125,6 +125,15 @@
                 </div>
 
                 <div *ngIf="customerForm.get('sendCatalog').value">
+                    <div class="form-group">
+                        <div class="col-md-4 col-md offset-2">
+                            <span>
+                                <button class="btn btn-primary" type="button" [disabled]="!addresses.valid" (click)="addAddress()">
+                                    Add another address
+                                </button>
+                            </span>
+                        </div>
+                    </div>
                     <div formArrayName="addresses" *ngFor="let address of addresses.controls; let i=index">
                         <div [formGroupName]="i">
                             <div class="form-group">
@@ -211,3 +220,5 @@
 <br>Touched: {{ customerForm.touched }}
 <br>Valid: {{ customerForm.valid }}
 <br>Value: {{ customerForm.value | json }}
+<br>Street: {{ addresses.get('0.street1')?.value}}
+<br>&nbsp;
